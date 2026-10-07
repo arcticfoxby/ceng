@@ -1,0 +1,11 @@
+services:
+  ceng:
+    build: .
+    restart: on-failure:3
+    stop_grace_period: 40s
+    environment:
+      QQBOT_APP_ID: ${QQBOT_APP_ID:?请在 .env 或运行环境中设置 QQBOT_APP_ID}
+      QQBOT_APP_SECRET: ${QQBOT_APP_SECRET:?请在 .env 或运行环境中设置 QQBOT_APP_SECRET}
+      DEEPSEEK_API_KEY: ${DEEPSEEK_API_KEY:?请在 .env 或运行环境中设置 DEEPSEEK_API_KEY}
+      DEEPSEEK_BASE_URL: ${DEEPSEEK_BASE_URL:-https://api.deepseek.com}
+      DEEPSEEK_MODEL: ${DEEPSEEK_MODEL:-deepseek-flash}
